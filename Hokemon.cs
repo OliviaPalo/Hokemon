@@ -63,5 +63,13 @@ namespace Hokemon
             return randomValue;
         }
 
+        public void about() // provides details about a Hokemon
+        {
+            Console.WriteLine("I am a hysterical species known as Hokemon.");
+        }
+
+
+
+
     }
 }
