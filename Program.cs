@@ -21,23 +21,11 @@ namespace Hokemon
             // instantiate new Hokemon object (player 2)
             Hokemon hoke02 = new Hokemon(); 
             hoke02.get_details();
+            hoke02.about();
             Console.WriteLine();
-            hoke02.about();
-
-            // example of polymorphism with about method
-            hoke02.about();
+            
 
             /*
-            // creates the object firstArena from Battle_Arena class
-            Battle_Arena firstArena = new Battle_Arena(); 
-
-            firstArena.Request_A_Challenger(hoke01);
-
-            System.Threading.Thread.Sleep(3000);
-
-            firstArena.Accept_The_Battle(hoke01, hoke02);
-            */
-
             Halor halorHoke01 = new Halor(); // inherits from Halor
             halorHoke01.get_details();
 
@@ -48,6 +36,21 @@ namespace Hokemon
             // a halor instance halorHoke01
             hoke04.about();
             halorHoke01.about();
+            */
+
+            // creates the object firstArena from Battle_Arena class
+            Battle_Arena firstArena = new Battle_Arena(); 
+
+            firstArena.Request_A_Challenger(hoke01);
+
+            System.Threading.Thread.Sleep(3000);
+
+            firstArena.Accept_The_Battle(hoke01, hoke02);
+
+           
+
+
+            
         }
     }
 }
