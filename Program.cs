@@ -47,10 +47,8 @@ namespace Hokemon
 
             firstArena.Accept_The_Battle(hoke01, hoke02);
 
-           
+            firstArena.Battle(hoke01, hoke02);
 
-
-            
         }
     }
 }

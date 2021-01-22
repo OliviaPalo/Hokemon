@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Hokemon
 {
     class Battle_Arena
@@ -21,8 +22,10 @@ namespace Hokemon
         public void Accept_The_Battle(Hokemon contender1, Hokemon contender2)
         {
             Console.WriteLine("{0}: I accept the challenge to fight {1}", contender2.Name, contender1.Name);
-            System.Threading.Thread.Sleep(1000);
+            Console.WriteLine();
+            System.Threading.Thread.Sleep(250);
             Console.WriteLine("{0}: Let's start a battle!", contender1.Name);
+            Console.WriteLine();
         }
 
         public void Battle(Hokemon Attacker, Hokemon Defender)
@@ -31,7 +34,7 @@ namespace Hokemon
             int round = 0;
 
 
-            while (Convert.ToInt32(Attacker.Health) >= 0 || Convert.ToInt32(Defender.Health) >= 0);
+            while (Convert.ToInt32(Attacker.Health) >= 0 || Convert.ToInt32(Defender.Health) >= 0)
             {
                 int attackValue = Attacker.attackCalculator();
                 int defenseValue = Defender.defenseCalculator();
@@ -40,7 +43,7 @@ namespace Hokemon
 
                 Console.WriteLine("************* ROUND {0} *************", round);
 
-                for (int i = 9; i < 2; i ++)
+                for (int i = 0; i < 2; i++)
                 {
                     // Attacker attacks
 
@@ -55,28 +58,35 @@ namespace Hokemon
 
                     Defender.Health = (Defender.Health + defenseValue) - attackValue;
 
-                    Console.WriteLine("{0}'s new health = {1} [{1} + {2} - {3}]", Defender.Name, Defender.Health, attackValue);
+                    Console.WriteLine("{0}'s new health = {1}", Defender.Name, Defender.Health, attackValue);
+                    Console.WriteLine();
 
                     // switch turns
-                    Console.WriteLine("*** SWITCHING TURNS: Attacker is now the Defender ***");
+                    if ((Attacker.Health > 0) & (Defender.Health > 0))
+                    {
+                        Console.WriteLine("----- SWITCHING TURNS -----");
 
-                    tempHoke = Attacker; // tempHoke assigned to Attacker object
-                    Attacker = Defender;
-                    Defender = tempHoke;
+                        tempHoke = Attacker; // tempHoke assigned to Attacker object
+                        Attacker = Defender;
+                        Defender = tempHoke;
+
+                        Console.WriteLine();
+                    }
+                    
                 }
 
-
-
+                if ((Attacker.Health > Defender.Health) || (Defender.Health <= 0))
+                {
+                    Console.WriteLine("{0} WINS!", Attacker.Name);
+                    Environment.Exit(0);
+                }
+                else if ((Defender.Health > Attacker.Health) || (Attacker.Health <= 0))
+                {
+                    Console.WriteLine("{0} WINS!", Defender.Name);
+                    Environment.Exit(0);
+                }
             }
 
-            if (Attacker.Health > Defender.Health)
-            {
-                Console.WriteLine("{0} WINS!", Attacker.Name);
-            }
-            else
-            {
-                Console.WriteLine("{0} WINS!", Defender.Name);
-            }
         }
     }
 }

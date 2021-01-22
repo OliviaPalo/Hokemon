@@ -72,7 +72,7 @@ namespace Hokemon
         {
             int attackValue;
 
-            attackValue = (attack + speed) * random_int_generator(0,2);
+            attackValue = attack * random_int_generator(1,2);
 
             return attackValue;
         }
@@ -80,7 +80,7 @@ namespace Hokemon
         {
             int defenseValue;
 
-            defenseValue = (defense + speed) * random_int_generator(0, 2);
+            defenseValue = defense * random_int_generator(1, 2);
 
             return defenseValue;
         }
