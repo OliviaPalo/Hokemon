@@ -23,7 +23,6 @@ namespace Hokemon
             hoke02.get_details();
             hoke02.about();
             Console.WriteLine();
-            
 
             /*
             Halor halorHoke01 = new Halor(); // inherits from Halor

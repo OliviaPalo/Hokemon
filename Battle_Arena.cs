@@ -36,15 +36,18 @@ namespace Hokemon
 
             while (Convert.ToInt32(Attacker.Health) >= 0 || Convert.ToInt32(Defender.Health) >= 0)
             {
-                int attackValue = Attacker.attackCalculator();
-                int defenseValue = Defender.defenseCalculator();
+                int attackValue;
+                int defenseValue;
 
-                round = round + 1;
+                round = (round + 1);
 
                 Console.WriteLine("************* ROUND {0} *************", round);
 
                 for (int i = 0; i < 2; i++)
                 {
+                    attackValue = Attacker.attackCalculator();
+                    defenseValue = Defender.defenseCalculator();
+
                     // Attacker attacks
 
                     Console.WriteLine("{0}: Attacks with value {1}", Attacker.Name, attackValue);

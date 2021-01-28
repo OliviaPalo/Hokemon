@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Hokemon
 {
+    /*
     class Halor : Hokemon
     {
         private string team = "Halor";
@@ -14,6 +15,6 @@ namespace Hokemon
         }
 
     }
-
+    */
     
 }
