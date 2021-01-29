@@ -65,7 +65,7 @@ namespace Hokemon
                     Console.WriteLine();
 
                     // switch turns
-                    if ((Attacker.Health > 0) & (Defender.Health > 0))
+                    if ((((Attacker.Health > 0) & (Defender.Health > 0))) & (round != 10))
                     {
                         Console.WriteLine("----- SWITCHING TURNS -----");
 
@@ -75,7 +75,6 @@ namespace Hokemon
 
                         Console.WriteLine();
                     }
-                    
                 }
 
                 if (Attacker.Health <= 0)
@@ -93,6 +92,25 @@ namespace Hokemon
                         Console.WriteLine("{0} WINS!", Attacker.Name);
                         Environment.Exit(0);
                     }
+                }
+
+                if (round == 10)
+                {
+                    if ((Attacker.Health <= 0) || (Defender.Health > Attacker.Health))
+                    {   
+                        Console.WriteLine("END OF BATTLE! {0} WINS!", Defender.Name);
+                        Environment.Exit(0);                    
+                    }
+                    else if ((Defender.Health <= 0) || (Attacker.Health > Defender.Health))
+                    {
+                        Console.WriteLine("END OF BATTLE! {0} WINS!", Attacker.Name);
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        Console.WriteLine("END OF BATTLE! IT'S A TIE!");
+                    }
+
                 }
 
                 //if ((Attacker.Health > Defender.Health) || (Defender.Health <= 0))
