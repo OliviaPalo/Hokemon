@@ -78,16 +78,33 @@ namespace Hokemon
                     
                 }
 
-                if ((Attacker.Health > Defender.Health) || (Defender.Health <= 0))
+                if (Attacker.Health <= 0)
                 {
-                    Console.WriteLine("{0} WINS!", Attacker.Name);
-                    Environment.Exit(0);
+                    if (Defender.Health > Attacker.Health)
+                    {
+                        Console.WriteLine("{0} WINS!", Defender.Name);
+                        Environment.Exit(0);
+                    }
                 }
-                else if ((Defender.Health > Attacker.Health) || (Attacker.Health <= 0))
+                else if (Defender.Health <= 0)
                 {
-                    Console.WriteLine("{0} WINS!", Defender.Name);
-                    Environment.Exit(0);
+                    if (Attacker.Health > Defender.Health)
+                    {
+                        Console.WriteLine("{0} WINS!", Attacker.Name);
+                        Environment.Exit(0);
+                    }
                 }
+
+                //if ((Attacker.Health > Defender.Health) || (Defender.Health <= 0))
+                //{
+                //    Console.WriteLine("{0} WINS!", Attacker.Name);
+                //    Environment.Exit(0);
+                //}
+                //else if ((Defender.Health > Attacker.Health) || (Attacker.Health <= 0))
+                //{
+                //    Console.WriteLine("{0} WINS!", Defender.Name);
+                //    Environment.Exit(0);
+                //}
             }
 
         }
